@@ -1,0 +1,42 @@
+<div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-cyan-500/20 hover:scale-[1.02]">
+  <div class="p-5">
+    <div class="flex justify-between items-start mb-3">
+      <h3 class="text-xl font-bold text-slate-100 truncate pr-2" [title]="record().containerId">
+        ID: {{ record().containerId }}
+      </h3>
+      @if(record().status) {
+        <span class="text-xs font-semibold px-2.5 py-1 rounded-full" [class]="statusColorClass()">
+          {{ record().status }}
+        </span>
+      }
+    </div>
+
+    <p class="text-sm text-slate-400 mb-4">
+      <span class="font-semibold">Última lectura:</span> {{ formattedTimestamp() }}
+    </p>
+
+    <!-- Fill Level -->
+    <div class="mb-4">
+      <div class="flex justify-between mb-1">
+        <span class="text-base font-medium text-cyan-400">Nivel de Llenado</span>
+        <span class="text-sm font-medium text-cyan-400">{{ fillPercentage() }}%</span>
+      </div>
+      <div class="w-full bg-slate-700 rounded-full h-2.5">
+        <div class="h-2.5 rounded-full transition-all duration-500" [class]="fillColorClass()" [style.width.%]="fillPercentage()"></div>
+      </div>
+    </div>
+    
+    <!-- Details -->
+    <div class="border-t border-slate-700 pt-4 mt-4 space-y-2 text-sm">
+        @if(record().eventType) {
+            <p><strong class="text-slate-400">Evento:</strong> <span class="text-slate-200">{{ record().eventType }}</span></p>
+        }
+        @if(record().recommendation) {
+            <p><strong class="text-slate-400">Recomendación:</strong> <span class="text-slate-200">{{ record().recommendation }}</span></p>
+        }
+        @if(record().operatorId) {
+            <p><strong class="text-slate-400">Operador:</strong> <span class="text-slate-200">{{ record().operatorId }}</span></p>
+        }
+    </div>
+  </div>
+</div>

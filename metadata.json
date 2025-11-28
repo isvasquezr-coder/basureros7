@@ -1,0 +1,5 @@
+{
+  "name": "Visor de Contenedores Supabase",
+  "description": "Una aplicación para visualizar los registros de contenedores desde una base de datos Supabase en tiempo real, mostrando niveles de llenado, estado y otra información relevante.",
+  "requestFramePermissions": []
+}
